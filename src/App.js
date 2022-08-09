@@ -18,12 +18,6 @@ import './scss/style.scss';
 function App() {
 	return (
 		<>
-			<Header />
-			<Route exact path='/'>
-				<Visual />
-				<Content />
-			</Route>
-
 			<Switch>
 				{/* 메인페이지 전용 라우터  */}
 				<Route exact path='/'>
@@ -38,12 +32,24 @@ function App() {
 				</Route>
 			</Switch>
 
-			<Route path='/department' component={Department} />
-			<Route path='/community' component={Community} />
-			<Route path='/gallery' component={Gallery} />
-			<Route path='/youtube' component={Youtube} />
-			<Route path='/location' component={Location} />
-			<Route path='/members' component={Members} />
+			<Route path='/department'>
+				<Department />
+			</Route>
+			<Route path='/community'>
+				<Community />
+			</Route>
+			<Route path='/gallery'>
+				<Gallery />
+			</Route>
+			<Route path='/youtube'>
+				<Youtube />
+			</Route>
+			<Route path='/location'>
+				<Location />
+			</Route>
+			<Route path='/members'>
+				<Members />
+			</Route>
 			<Footer />
 		</>
 	);

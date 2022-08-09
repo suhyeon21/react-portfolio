@@ -1,12 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-function Header() {
+function Header({ type }) {
 	return (
-		<header>
+		<header className={type}>
 			{/* 로고 */}
-			<h1>
-				<div>로고</div>
-			</h1>
+			<Link to='/'>
+				<h1>
+					<div>로고</div>
+				</h1>
+			</Link>
 			<nav>
 				<ul id='gnb'>
 					<li>
