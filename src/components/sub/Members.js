@@ -5,6 +5,14 @@ function Members() {
 		userid: '',
 	};
 	const [Val, setVal] = useState(initVal);
+	const handleChange = (e) => {
+		console.log(Val);
+		const { name, value } = e.target;
+		//name = 'userid'
+		//객체에서 키값을 변수로 지정이 안됨 (es5)
+		//객체에세 키값을 변수로 치환하고자 할때는 키에 들어갈 변수를 대괄호로 감싸줌 (es6)
+		setVal({ ...Val, [name]: value });
+	};
 
 	return (
 		<Layout name={'Members'}>
@@ -25,9 +33,7 @@ function Members() {
 										name='userid'
 										id='userid'
 										value={Val.userid}
-										onChange={(e) => {
-											setVal({ ...Val, userid: e.target.value });
-										}}
+										onChange={handleChange}
 									/>
 								</td>
 							</tr>
