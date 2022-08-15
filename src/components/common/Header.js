@@ -4,11 +4,11 @@ function Header({ type }) {
 	return (
 		<header className={type}>
 			{/* 로고 */}
-			<Link to='/'>
-				<h1>
-					<div>로고</div>
-				</h1>
-			</Link>
+			<h1>
+				<Link to='/'>
+					<div className='logo'>LOGO</div>
+				</Link>
+			</h1>
 			<nav>
 				<ul id='gnb'>
 					<li>
