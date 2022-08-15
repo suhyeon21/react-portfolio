@@ -32,7 +32,7 @@ function Members() {
 		}
 		//password 인증처리
 		if (
-			value.pwd1 < 6 ||
+			value.pwd1.length < 6 ||
 			!eng.test(value.pwd1) ||
 			!num.text(value.pwd1) ||
 			!spc.test(value.pwd1)
