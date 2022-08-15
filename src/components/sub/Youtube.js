@@ -9,7 +9,7 @@ function Youtube() {
 	useEffect(() => {
 		const key = 'AIzaSyB9zeQFs7g9K4g_p4oCeqToiPG81AmLFhk';
 		const playlist = 'PLUTOYlZjKt_ZJJO4HwADJIalRw28uqXVe';
-		const num = 6;
+		const num = 4;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
 		axios.get(url).then((json) => {
 			setVids(json.data.items);
@@ -18,23 +18,34 @@ function Youtube() {
 
 	return (
 		<Layout name={'Youtube'}>
-			{Vids.map((vid, idx) => {
-				return (
-					<article key={idx}>
-						<h2>
-							{vid.snippet.title.length > 50
-								? vid.snippet.title.substr(0, 30) + '...'
-								: vid.snippet.title}
-						</h2>
-						<div className='txt'>
-							<span>{vid.snippet.publishedAt.split('T')[0]}</span>
-						</div>
-						<div className='pic'>
-							<img src={vid.snippet.thumbnails.standard.url} alt={vid.title} />
-						</div>
-					</article>
-				);
-			})}
+			<div className='wrap'>
+				<h1 className='title'>
+					SELECTED
+					<br />
+					WORK
+				</h1>
+				{Vids.map((vid, idx) => {
+					return (
+						<article key={idx}>
+							<h2>
+								{vid.snippet.title.length > 50
+									? vid.snippet.title.substr(0, 30) + '...'
+									: vid.snippet.title}
+							</h2>
+
+							<div className='pic'>
+								<img
+									src={vid.snippet.thumbnails.standard.url}
+									alt={vid.title}
+								/>
+							</div>
+							<div className='txt'>
+								<span>{vid.snippet.publishedAt.split('T')[0]}</span>
+							</div>
+						</article>
+					);
+				})}
+			</div>
 		</Layout>
 	);
 }
