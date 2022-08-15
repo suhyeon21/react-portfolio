@@ -8,6 +8,7 @@ function Members() {
 		pwd1: '',
 		pwd2: '',
 		gender: null,
+		interests: null,
 	};
 	const [Val, setVal] = useState(initVal);
 	//인증 실패시 출력될 에러메시지 담을 state
@@ -49,8 +50,14 @@ function Members() {
 		if (!value.gender) {
 			errs.gender = '성별을 선택하세요';
 		}
+
+		//interests 인증처리
+		if (!value.interests) {
+			errs.interests = '관심사를 하나 이상 선택하세요';
+		}
 		return errs;
 	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -71,6 +78,17 @@ function Members() {
 		//객체에서 키값을 변수로 지정이 안됨 (es5)
 		//객체에세 키값을 변수로 치환하고자 할때는 키에 들어갈 변수를 대괄호로 감싸줌 (es6)
 		setVal({ ...Val, [name]: value });
+	};
+
+	const handleCheck = (e) => {
+		let isCheck = false;
+		const { name } = e.target;
+		const inputs = e.target.parentElement.querySelectorAll('input');
+
+		inputs.forEach((el) => {
+			if (el.checked) isCheck = true;
+		});
+		setVal({ ...Val, [name]: isCheck });
 	};
 
 	useEffect(() => {
@@ -102,7 +120,6 @@ function Members() {
 									<span className='err'>{Err.userid}</span>
 								</td>
 							</tr>
-
 							{/* password */}
 							<tr>
 								<th scope='row'>
@@ -172,6 +189,34 @@ function Members() {
 										onChange={handleRadio}
 									/>
 									<span className='err'>{Err.gender}</span>
+								</td>
+							</tr>
+							{/* interests */}
+							<tr>
+								<th scope='row'>INTERESTS</th>
+								<td>
+									<label htmlFor='sports'>Sports</label>
+									<input
+										type='checkbox'
+										name='interests'
+										id='sports'
+										onChange={handleCheck}
+									/>
+									<label htmlFor='music'>Music</label>
+									<input
+										type='checkbox'
+										name='interests'
+										id='music'
+										onChange={handleCheck}
+									/>
+									<label htmlFor='game'>Game</label>
+									<input
+										type='checkbox'
+										name='interests'
+										id='game'
+										onChange={handleCheck}
+									/>
+									<span className='err'>{Err.interests}</span>
 								</td>
 							</tr>
 							{/* btnset */}
