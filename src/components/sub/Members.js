@@ -1,10 +1,32 @@
 import Layout from '../common/Layout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 function Members() {
 	const initVal = {
 		userid: '',
 	};
 	const [Val, setVal] = useState(initVal);
+	//인증 실패시 출력될 에러메시지 담을 state
+	const [Err, setErr] = useState({});
+
+	// 인증처리 함수
+	const check = (value) => {
+		const errs = {};
+
+		//userid인증 처리
+		if (value.userid.length < 5) {
+			errs.userid = '아이디를 5글자 이상 입력하세요';
+		}
+		return errs;
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		setErr(check(Val));
+		console.log(Err);
+	};
+
 	const handleChange = (e) => {
 		console.log(Val);
 		const { name, value } = e.target;
@@ -14,16 +36,21 @@ function Members() {
 		setVal({ ...Val, [name]: value });
 	};
 
+	useEffect(() => {
+		console.log(Err);
+	}, [Err]);
+
 	return (
 		<Layout name={'Members'}>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<fieldset>
 					<legend>회원가입 폼 양식</legend>
 					<table border='1' wid='600'>
 						<caption>회원가입 정보 입력</caption>
 						<tbody>
+							{/* userid */}
 							<tr>
-								<th>
+								<th scope='row'>
 									<label htmlFor='userid'>USER ID</label>
 								</th>
 								<td>
@@ -35,7 +62,16 @@ function Members() {
 										value={Val.userid}
 										onChange={handleChange}
 									/>
+									<span className='err'>{Err.userid}</span>
 								</td>
+							</tr>
+
+							{/* btnset */}
+							<tr>
+								<th colspan='2'>
+									<input type='reset' value='cancel' />
+									<input type='submit' value='submit' />
+								</th>
 							</tr>
 						</tbody>
 					</table>
