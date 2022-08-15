@@ -13,13 +13,17 @@ function Members() {
 	const check = (value) => {
 		const errs = {};
 
-		//userid인증 처리
+		//userid 인증처리
 		if (value.userid.length < 5) {
 			errs.userid = '아이디를 5글자 이상 입력하세요';
 		}
+
+		//email 인증처리
+		if (value.email.length < 8 || !/@/.test(value.email)) {
+			errs.email = '이메일 주소는 8글자 이상 @를 포함하세요';
+		}
 		return errs;
 	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -66,6 +70,23 @@ function Members() {
 								</td>
 							</tr>
 
+							{/* email */}
+
+							<tr>
+								<th scope='row'>
+									<label htmlFor='email'>E-MAIL</label>
+								</th>
+								<td>
+									<input
+										type='text'
+										placeholder='이메일을 입력하세요'
+										name='email'
+										id='email'
+										onChange={handleChange}
+									/>
+									<span className='err'>{Err.email}</span>
+								</td>
+							</tr>
 							{/* btnset */}
 							<tr>
 								<th colspan='2'>
