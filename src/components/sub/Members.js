@@ -1,7 +1,9 @@
 import Layout from '../common/Layout';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Members() {
+	const history = useHistory();
 	const initVal = {
 		userid: '',
 		email: '',
@@ -10,10 +12,12 @@ function Members() {
 		gender: null,
 		interests: null,
 		edu: '',
+		comments: '',
 	};
 	const [Val, setVal] = useState(initVal);
 	//인증 실패시 출력될 에러메시지 담을 state
 	const [Err, setErr] = useState({});
+	const [Submit, setSubmit] = useState(false);
 
 	// 인증처리 함수
 	const check = (value) => {
@@ -37,14 +41,14 @@ function Members() {
 		if (
 			value.pwd1.length < 6 ||
 			!eng.test(value.pwd1) ||
-			!num.text(value.pwd1) ||
+			!num.test(value.pwd1) ||
 			!spc.test(value.pwd1)
 		) {
 			errs.pwd1 =
 				'비밀번호는 6글자 이상, 영문, 숫자, 특수문자를 모두 포함해주세요';
 		}
 
-		if (value.pwd1 !== value.pwd2) {
+		if (value.pwd1 !== value.pwd2 || !value.pwd2) {
 			errs.pwd2 = '비밀번호를 동일하게 입력해 주세요';
 		}
 		//gender 인증처리
@@ -59,6 +63,11 @@ function Members() {
 		//edu 인증처리
 		if (value.edu === '') {
 			errs.edu = '최종학력을 선택하세요';
+		}
+
+		//comments 인증처리
+		if (value.comments.length < 10) {
+			errs.comments = '남기는 말을 10글자 이상 입력하세요';
 		}
 		return errs;
 	};
@@ -104,6 +113,14 @@ function Members() {
 
 	useEffect(() => {
 		console.log(Err);
+		//전송 클릭시 에러메세지를 가지고 값이 Err 스테이트 객체에 하나도 없으면 인증 통과
+		//Object.keys(확인할 객체): 특정 객체의 키값을 배열로 반환
+		const len = Object.keys(Err).length;
+
+		if (len === 0 && Submit) {
+			alert('회원가입이 완료되었습니다. 메인 페이지로 이동합니다');
+			history.push('/');
+		}
 	}, [Err]);
 
 	return (
@@ -236,7 +253,7 @@ function Members() {
 									<label htmlFor='edu'>EDUCATION</label>
 								</th>
 								<td>
-									<select name='edu' id='edu'>
+									<select name='edu' id='edu' onChange={handleSelect}>
 										<option value=''>최종 학력을 선택하세요</option>
 										<option value='elementary-school'>초등학교 졸업</option>
 										<option value='middle-school'>중학교 졸업</option>
@@ -246,12 +263,31 @@ function Members() {
 									<span className='err'>{Err.edu}</span>
 								</td>
 							</tr>
-
+							{/* comments */}
+							<tr>
+								<th scope='row'>
+									<label htmlFor='comments'>COMMENTS</label>
+								</th>
+								<td>
+									<textarea
+										name='comments'
+										id='comments'
+										cols='30'
+										rows='3'
+										placeholder='남기는 말을 입력하세요'
+										onChange={handleChange}></textarea>
+									<span className='err'>{Err.comments}</span>
+								</td>
+							</tr>
 							{/* btnset */}
 							<tr>
 								<th colspan='2'>
 									<input type='reset' value='cancel' />
-									<input type='submit' value='submit' />
+									<input
+										type='submit'
+										value='submit'
+										onClick={() => setSubmit(true)}
+									/>
 								</th>
 							</tr>
 						</tbody>
