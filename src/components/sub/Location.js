@@ -20,6 +20,18 @@ function Location() {
 
 	return (
 		<Layout name={'Location'}>
+			<div className='title'>
+				<h1>GET TO US</h1>
+				<span>Lorem ipsum dolor sit amet consectetur</span>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet harum
+					unde iusto libero laborum.
+					<br /> Harum possimus cum eaque est, esse eligendi! Sint nemo
+					exercitationem earum, <br />
+					itaque ea alias dolorum eos dolores. Iste non consectetur veritatis
+					atque nesciunt.
+				</p>
+			</div>
 			<div id='map' ref={container}></div>
 		</Layout>
 	);
