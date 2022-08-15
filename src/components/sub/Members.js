@@ -7,6 +7,7 @@ function Members() {
 		email: '',
 		pwd1: '',
 		pwd2: '',
+		gender: null,
 	};
 	const [Val, setVal] = useState(initVal);
 	//인증 실패시 출력될 에러메시지 담을 state
@@ -44,6 +45,10 @@ function Members() {
 		if (value.pwd1 !== value.pwd2) {
 			errs.pwd2 = '비밀번호를 동일하게 입력해 주세요';
 		}
+		//gender 인증처리
+		if (!value.gender) {
+			errs.gender = '성별을 선택하세요';
+		}
 		return errs;
 	};
 	const handleSubmit = (e) => {
@@ -51,6 +56,12 @@ function Members() {
 
 		setErr(check(Val));
 		console.log(Err);
+	};
+
+	const handleRadio = (e) => {
+		const { name } = e.target;
+		const isCheck = e.target.checked;
+		setVal({ ...Val, [name]: isCheck });
 	};
 
 	const handleChange = (e) => {
@@ -140,6 +151,27 @@ function Members() {
 										onChange={handleChange}
 									/>
 									<span className='err'>{Err.email}</span>
+								</td>
+							</tr>
+							{/* gender */}
+							<tr>
+								<th scope='row'>GENDER</th>
+								<td>
+									<label htmlFor='male'>MALE</label>
+									<input
+										type='radio'
+										name='gender'
+										id='male'
+										onChange={handleRadio}
+									/>
+									<label htmlFor='female'>FEMALE</label>
+									<input
+										type='radio'
+										name='gender'
+										id='female'
+										onChange={handleRadio}
+									/>
+									<span className='err'>{Err.gender}</span>
 								</td>
 							</tr>
 							{/* btnset */}
