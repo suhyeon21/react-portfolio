@@ -7,7 +7,7 @@ function Youtube() {
 	const [Vids, setVids] = useState([]);
 
 	useEffect(() => {
-		const key = 'AIzaSyB9zeQFs7g9K4g_p4oCeqToiPG81AmLFhk';
+		const key = 'AIzaSyAJsmJvvo5E6PUvVlACmHpekbahnzPULGg';
 		const playlist = 'PLUTOYlZjKt_ZJJO4HwADJIalRw28uqXVe';
 		const num = 4;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;

@@ -33,6 +33,17 @@ function Location() {
 				</p>
 			</div>
 			<div id='map' ref={container}></div>
+			<div className='bottom'>
+				<h2 className='contact'>CONTACT</h2>
+				<div className='wrap'>
+					<h2 className='reservation'>RESERVATIONS</h2>
+					<div>
+						<p>673 12 Constitution Lane Massillion, 05765 New York</p>
+						<p>781-562-9355, 781-727-6090</p>
+						<p>musea@qodeinteractive.com</p>
+					</div>
+				</div>
+			</div>
 		</Layout>
 	);
 }
