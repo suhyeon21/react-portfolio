@@ -30,6 +30,10 @@ function Header({ type }) {
 						<NavLink to='/members'>MEMBERS</NavLink>
 					</li>
 				</ul>
+				<ul id='sign'>
+					<li>SIGN IN</li>
+					<li>SIGN UP</li>
+				</ul>
 			</nav>
 		</header>
 	);
