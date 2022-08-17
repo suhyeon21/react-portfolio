@@ -1,7 +1,7 @@
 .Youtube {
 	.wrap {
 		.title {
-			font-size: 120px;
+			font-size: 90px;
 			padding: 30px 60px;
 			line-height: 1.1;
 		}
@@ -15,7 +15,7 @@
 
 		h2 {
 			width: 50%;
-			font-size: 45px;
+			font-size: 40px;
 			line-height: 1.1;
 		}
 		.pic {
@@ -29,6 +29,7 @@
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
+				padding: 10px;
 			}
 
 			&:hover {
@@ -42,7 +43,7 @@
 			justify-content: flex-end;
 
 			span {
-				font: 18px/1 'arial';
+				font: 15px/1 'arial';
 				color: #000;
 			}
 		}

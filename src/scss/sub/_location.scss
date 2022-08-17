@@ -47,6 +47,7 @@
 		line-height: 1.8;
 		.wrap-con {
 			width: 50%;
+			margin-right: -50px;
 			input {
 				border-right: 0px;
 				border-top: 0px;
@@ -55,16 +56,16 @@
 			}
 
 			.message {
-				width: 100%;
+				width: 90%;
 				margin-bottom: 15px;
 			}
 			.input-bottom {
 				.name {
-					width: 49%;
+					width: 45%;
 					margin-right: 8px;
 				}
 				.email {
-					width: 49%;
+					width: 44%;
 				}
 			}
 
