@@ -1,5 +1,9 @@
 import Layout from '../common/Layout';
 import { useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 function Location() {
 	const { kakao } = window;
@@ -21,27 +25,50 @@ function Location() {
 	return (
 		<Layout name={'Location'}>
 			<div className='title'>
+				<span>Contact form</span>
 				<h1>GET TO US</h1>
 				<span>Lorem ipsum dolor sit amet consectetur</span>
 				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet harum
-					unde iusto libero laborum.
-					<br /> Harum possimus cum eaque est, esse eligendi! Sint nemo
-					exercitationem earum, <br />
-					itaque ea alias dolorum eos dolores. Iste non consectetur veritatis
-					atque nesciunt.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do se
+					eiusmod temps esto incididun in ut labore et sa dolore si magna
+					aliqua. Ut enim ad minim destro veniam, inant quis nostrud e exerci de
+					tation ullamco laboris nisi ut sen aliquip ex ea commodo insa velit ut
+					consequat duis aute irure do se dolor in reprehenderit in
 				</p>
 			</div>
 			<div id='map' ref={container}></div>
+
 			<div className='bottom'>
-				<h2 className='contact'>CONTACT</h2>
+				<div className='wrap-con'>
+					<span>Get in touch</span>
+					<h2 className='contact'>CONTACT</h2>
+					<input type='text' placeholder='Message' className='message' />
+					<div className='input-bottom'>
+						<input type='text' placeholder='Name' className='name' />
+						<input type='email' placeholder='E-mail' className='email' />
+					</div>
+					<button>Submit</button>
+				</div>
+
 				<div className='wrap'>
+					<span>Discover more</span>
 					<h2 className='reservation'>RESERVATIONS</h2>
-					<div>
+					<div className='info'>
 						<p>673 12 Constitution Lane Massillion, 05765 New York</p>
 						<p>781-562-9355, 781-727-6090</p>
 						<p>musea@qodeinteractive.com</p>
 					</div>
+					<ul className='sns'>
+						<li>
+							<FontAwesomeIcon icon={faFacebook} />
+						</li>
+						<li>
+							<FontAwesomeIcon icon={faInstagram} />
+						</li>
+						<li>
+							<FontAwesomeIcon icon={faTwitter} />
+						</li>
+					</ul>
 				</div>
 			</div>
 		</Layout>

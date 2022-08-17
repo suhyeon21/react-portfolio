@@ -1,8 +1,34 @@
 .Location {
 	.title {
 		text-align: center;
-		margin: 70px 0px;
-		position: relative;
+		margin: 50px auto;
+		width: 600px;
+
+		h1 {
+			display: flex;
+			flex-basis: center;
+			color: rgba(0, 0, 0, 0.35);
+			font-size: 60px;
+			margin-bottom: 10px;
+			&::before {
+				content: '';
+				flex-grow: 2;
+				margin: 40px 16px;
+				background: rgba(0, 0, 0, 0.35);
+				height: 1px;
+				font-size: 0px;
+				line-height: 0px;
+			}
+			&::after {
+				content: '';
+				flex-grow: 1;
+				margin: 40px 16px;
+				background: rgba(0, 0, 0, 0.35);
+				height: 1px;
+				font-size: 0px;
+				line-height: 0px;
+			}
+		}
 	}
 
 	#map {
@@ -13,13 +39,56 @@
 	}
 
 	.bottom {
-		padding: 100px 150px;
+		width: 100%;
+		margin-top: 50px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
+		gap: 100px;
+		line-height: 1.8;
+		.wrap-con {
+			width: 50%;
+			input {
+				border-right: 0px;
+				border-top: 0px;
+				border-left: 0px;
+				margin-bottom: 10px;
+			}
+
+			.message {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+			.input-bottom {
+				.name {
+					width: 49%;
+					margin-right: 8px;
+				}
+				.email {
+					width: 49%;
+				}
+			}
+
+			button {
+				margin-top: 20px;
+				padding: 5px 20px;
+				border: 1px solid rgb(127, 121, 121);
+				background-color: #fff;
+			}
+		}
 
 		.wrap {
 			display: flex;
 			flex-direction: column;
+
+			.info {
+				line-height: 2;
+			}
+			.sns {
+				display: flex;
+				gap: 20px;
+				font-size: 20px;
+				margin-top: 20px;
+			}
 		}
 	}
 }
