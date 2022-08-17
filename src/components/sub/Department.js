@@ -29,8 +29,10 @@ function Department() {
 								<img src={`${path}/img/${member.pic}`} alt={member.name} />
 							</div>
 						</div>
-						<h2>{member.name}</h2>
-						<p>{member.position}</p>
+						<div className='info'>
+							<h2>{member.name}</h2>
+							<p>{member.position}</p>
+						</div>
 					</div>
 				</article>
 			))}

@@ -20,15 +20,15 @@
 		}
 
 		article {
-			width: 33.333%;
+			width: 25%;
 			float: left;
-			padding: 30px;
+			padding: 20px;
 			.inner {
 				width: 100%;
 
 				.picFrame {
 					width: 100%;
-					height: 23vw;
+					height: 22vw;
 					position: relative;
 
 					.reflect {
@@ -51,7 +51,7 @@
 
 					.pic {
 						width: 100%;
-						height: 100%;
+						height: 80%;
 						background: #111;
 						position: absolute;
 						top: 0;
@@ -74,10 +74,9 @@
 						}
 					}
 				}
-				h2,
-				p {
-					margin-top: 10px;
+				.info {
 					text-align: center;
+					margin-top: -25px;
 				}
 			}
 		}
