@@ -29,6 +29,16 @@
       "name": "Michael",
       "position": "Project Manager",
       "pic": "member6.jpg"
+    },
+    {
+      "name": "John",
+      "position": "Front-end Engineer",
+      "pic": "member7.jpg"
+    },
+    {
+      "name": "Jason",
+      "position": "Back-end Engineer",
+      "pic": "member8.jpg"
     }
   ]
 }
