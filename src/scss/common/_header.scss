@@ -2,7 +2,7 @@ header {
 	border: 1px solid #111;
 	width: 100%;
 	height: 70px;
-	padding: 0px 7vw;
+	padding: 0px 8vw;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -26,7 +26,7 @@ header {
 		}
 		#sign {
 			display: flex;
-			gap: 40px;
+			gap: 20px;
 			li {
 				border: 1px solid #000;
 				border-radius: 50px;
