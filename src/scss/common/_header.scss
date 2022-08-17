@@ -14,7 +14,6 @@ header {
 		flex-wrap: wrap;
 		align-content: center;
 		color: #111;
-		margin-right: 250px;
 	}
 	nav {
 		display: flex;
@@ -23,6 +22,16 @@ header {
 			display: flex;
 			gap: 40px;
 			align-items: center;
+			margin-right: 150px;
+		}
+		#sign {
+			display: flex;
+			gap: 40px;
+			li {
+				border: 1px solid #000;
+				border-radius: 50px;
+				padding: 5px 20px;
+			}
 		}
 	}
 }
