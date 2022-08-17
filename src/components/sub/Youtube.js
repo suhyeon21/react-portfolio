@@ -7,8 +7,8 @@ function Youtube() {
 	const [Vids, setVids] = useState([]);
 
 	useEffect(() => {
-		const key = 'AIzaSyAJsmJvvo5E6PUvVlACmHpekbahnzPULGg';
-		const playlist = 'PLUTOYlZjKt_ZJJO4HwADJIalRw28uqXVe';
+		const key = 'AIzaSyCa4kJGxnh2YRcoywf_v-37m9DRJY75_Mw';
+		const playlist = 'PLUTOYlZjKt_YfIUHaMMypoLWiKGHqjonq';
 		const num = 4;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
 		axios.get(url).then((json) => {
@@ -27,11 +27,7 @@ function Youtube() {
 				{Vids.map((vid, idx) => {
 					return (
 						<article key={idx}>
-							<h2>
-								{vid.snippet.title.length > 50
-									? vid.snippet.title.substr(0, 30) + '...'
-									: vid.snippet.title}
-							</h2>
+							<h2>{vid.snippet.title}</h2>
 
 							<div className='pic'>
 								<img

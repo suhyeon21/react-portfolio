@@ -1,7 +1,10 @@
 .Youtube {
-	.title {
-		font-size: 70px;
-		padding: 30px 60px;
+	.wrap {
+		.title {
+			font-size: 120px;
+			padding: 30px 60px;
+			line-height: 1.1;
+		}
 	}
 	article {
 		border-top: 1px solid #aaa;
@@ -11,13 +14,13 @@
 		justify-content: space-between;
 
 		h2 {
-			width: 40%;
-			font: bold 32px/1 'work sans';
-			color: #777;
+			width: 50%;
+			font-size: 45px;
+			line-height: 1.1;
 		}
 		.pic {
-			width: 25%;
-			height: 200px;
+			width: 30%;
+			height: 230px;
 			background: #000;
 			filter: saturate(0);
 			transition: 0.5s;
@@ -33,14 +36,14 @@
 			}
 		}
 		.txt {
-			width: 5%;
+			width: 10%;
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: end;
+			justify-content: flex-end;
 
 			span {
-				font: 12px/1 'arial';
-				color: orange;
+				font: 18px/1 'arial';
+				color: #000;
 			}
 		}
 	}
