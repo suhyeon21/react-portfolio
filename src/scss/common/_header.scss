@@ -2,7 +2,7 @@ header {
 	border: 1px solid #111;
 	width: 100%;
 	height: 80px;
-	padding: 0px 8vw;
+	padding: 0px 7vw;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -19,9 +19,9 @@ header {
 		justify-content: space-between;
 		#gnb {
 			display: flex;
-			gap: 40px;
+			gap: 30px;
 			align-items: center;
-			margin-right: 130px;
+			margin-right: 90px;
 		}
 		#sign {
 			display: flex;
