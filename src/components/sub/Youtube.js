@@ -1,7 +1,8 @@
 import Layout from '../common/Layout';
-
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function Youtube() {
 	const [Vids, setVids] = useState([]);
@@ -34,6 +35,7 @@ function Youtube() {
 									src={vid.snippet.thumbnails.standard.url}
 									alt={vid.title}
 								/>
+								<FontAwesomeIcon icon={faYoutube} />
 							</div>
 							<div className='txt'>
 								<span>{vid.snippet.publishedAt.split('T')[0]}</span>
