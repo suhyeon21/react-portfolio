@@ -2,11 +2,12 @@ header {
 	border: 1px solid #111;
 	width: 100%;
 	height: 80px;
-	padding: 0px 7vw;
+	padding: 0px 6vw;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
+
 	h1 {
 		display: flex;
 		flex-wrap: wrap;
@@ -15,26 +16,28 @@ header {
 		color: #111;
 
 		img {
-			width: 70px;
+			width: 60px;
 			vertical-align: middle;
 		}
 	}
 	nav {
 		display: flex;
+		gap: 70px;
+		font-size: 14px;
 
 		#gnb {
 			display: flex;
-			gap: 30px;
+			gap: 25px;
 			align-items: center;
-			margin-right: 100px;
 		}
 		#sign {
 			display: flex;
 			gap: 20px;
+
 			li {
 				border: 1px solid #000;
 				border-radius: 50px;
-				padding: 5px 20px;
+				padding: 5px 15px;
 			}
 		}
 	}
@@ -63,8 +66,6 @@ header {
 				display: none;
 			}
 			#sign {
-				height: 50px;
-
 				text-align: center;
 				li {
 					width: 100px;
