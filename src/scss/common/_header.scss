@@ -7,7 +7,6 @@ header {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-
 	h1 {
 		display: flex;
 		flex-wrap: wrap;
@@ -22,13 +21,12 @@ header {
 	}
 	nav {
 		display: flex;
-		justify-content: space-between;
 
 		#gnb {
 			display: flex;
 			gap: 30px;
 			align-items: center;
-			margin-right: 40px;
+			margin-right: 100px;
 		}
 		#sign {
 			display: flex;
