@@ -8,7 +8,9 @@ function Footer() {
 	return (
 		<footer>
 			<div className='upper'>
-				<h1>logo</h1>
+				<h1>
+					<img src={process.env.PUBLIC_URL + '/img/logo.png'} alt='logo' />
+				</h1>
 
 				<nav>
 					<dl>
