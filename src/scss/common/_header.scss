@@ -23,11 +23,12 @@ header {
 	nav {
 		display: flex;
 		justify-content: space-between;
+
 		#gnb {
 			display: flex;
 			gap: 30px;
 			align-items: center;
-			margin-right: 60px;
+			margin-right: 40px;
 		}
 		#sign {
 			display: flex;
