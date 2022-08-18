@@ -12,7 +12,13 @@ header {
 		display: flex;
 		flex-wrap: wrap;
 		align-content: center;
+		justify-content: center;
 		color: #111;
+
+		img {
+			width: 70px;
+			vertical-align: middle;
+		}
 	}
 	nav {
 		display: flex;
@@ -21,7 +27,7 @@ header {
 			display: flex;
 			gap: 30px;
 			align-items: center;
-			margin-right: 90px;
+			margin-right: 60px;
 		}
 		#sign {
 			display: flex;
@@ -30,6 +36,54 @@ header {
 				border: 1px solid #000;
 				border-radius: 50px;
 				padding: 5px 20px;
+			}
+		}
+	}
+}
+@media screen and (max-width: $web_s) {
+	header {
+		height: 100px;
+
+		nav {
+			width: 75%;
+
+			#gnb {
+				margin-right: 0px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	header {
+		height: 150px;
+		nav {
+			width: 25%;
+
+			#gnb {
+				display: none;
+			}
+			#sign {
+				height: 50px;
+
+				text-align: center;
+				li {
+					width: 100px;
+					padding: 5px 20px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	header {
+		height: 100px;
+		nav {
+			display: none;
+
+			#sign {
+				display: none;
 			}
 		}
 	}

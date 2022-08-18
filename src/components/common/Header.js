@@ -3,10 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 function Header({ type }) {
 	return (
 		<header className={type}>
-			{/* 로고 */}
 			<h1>
 				<Link to='/'>
-					<div className='logo'>LOGO</div>
+					<img src={process.env.PUBLIC_URL + '/img/logo.png'} alt='logo' />
 				</Link>
 			</h1>
 			<nav>
