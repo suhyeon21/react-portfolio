@@ -5,17 +5,23 @@ function Community() {
 	const input = useRef(null);
 	const textarea = useRef(null);
 	const [Posts, setPosts] = useState([]);
+	//기존 폼 요소 초기회
+	const resetForm = () => {
+		input.current.value = '';
+		textarea.current.value = '';
+	};
 
 	//글 저장 함수
 	const createPost = () => {
-		console.log('title', input.current.value);
-		console.log('content', textarea.current.value);
+		if (!input.current.value.trim() || !textarea.current.value.trim()) {
+			return alert('제목과 본문을 모두 입력하세요');
+		}
 		setPosts([
 			...Posts,
 			{ title: input.current.value, content: textarea.current.value },
 		]);
 	};
-
+	resetForm();
 	useEffect(() => {
 		console.log(Posts);
 	}, [Posts]);
