@@ -50,6 +50,7 @@ function Community() {
 				return post;
 			})
 		);
+		setAllowed(true);
 	};
 
 	//글 수정모드 변경함수
