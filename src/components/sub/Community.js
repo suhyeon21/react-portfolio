@@ -13,7 +13,7 @@ function Community() {
 		return JSON.parse(data);
 	};
 
-	const [Posts, setPosts] = useState([]);
+	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowed, setAllowed] = useState(true);
 
 	//기존 폼요소 초기화 함수
@@ -51,7 +51,7 @@ function Community() {
 			Posts.map((post, idx) => {
 				if (idx === index) {
 					post.title = inputEdit.current.value;
-					post.content = textareaEdit.value;
+					post.content = textareaEdit.current.value;
 					post.enableUpdate = false;
 				}
 				return post;
