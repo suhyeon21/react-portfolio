@@ -7,6 +7,7 @@ function Community() {
 	const inputEdit = useRef(null);
 	const textareaEdit = useRef(null);
 	const [Posts, setPosts] = useState([]);
+	const [Allowed, setAllowed] = useState(true);
 
 	//기존 폼요소 초기화 함수
 	const resetForm = () => {
@@ -53,6 +54,8 @@ function Community() {
 
 	//글 수정모드 변경함수
 	const enableUpdate = (index) => {
+		if (!Allowed) return;
+		setAllowed(false);
 		setPosts(
 			Posts.map((post, idx) => {
 				if (idx === index) post.enableUpdate = true;
@@ -63,6 +66,7 @@ function Community() {
 
 	//글 출력모드 변경함수
 	const disableUpdate = (index) => {
+		setAllowed(true);
 		setPosts(
 			Posts.map((post, idx) => {
 				if (idx === index) post.enableUpdate = false;
@@ -72,8 +76,8 @@ function Community() {
 	};
 
 	useEffect(() => {
-		console.log(Posts);
-	}, [Posts]);
+		console.log(Allowed);
+	}, [Allowed]);
 
 	return (
 		<Layout name={'Community'}>
