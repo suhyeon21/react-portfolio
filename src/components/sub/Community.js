@@ -99,7 +99,7 @@ function Community() {
 					ref={textarea}></textarea>
 				<br />
 				<div className='btnSet'>
-					<button>CANCEL</button>
+					<button onClick={resetForm}>CANCEL</button>
 					<button onClick={createPost}>WRITE</button>
 				</div>
 			</div>
