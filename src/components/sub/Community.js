@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from 'react';
 function Community() {
 	const input = useRef(null);
 	const textarea = useRef(null);
+	const inputEdit = useRef(null);
+	const textareaEdit = useRef(null);
 	const [Posts, setPosts] = useState([]);
 
 	//기존 폼요소 초기화 함수
@@ -28,6 +30,25 @@ function Community() {
 	const deletePost = (index) => {
 		const newPosts = Posts.filter((_, idx) => idx !== index);
 		setPosts(newPosts);
+	};
+
+	//실제 글 수정 함수
+	const updatePost = (index) => {
+		if (!inputEdit.current.value.trim() || !textareaEdit.current.value.trim()) {
+			resetForm();
+			return alert('수정할 제목과 본문을 모두 입력하세요.');
+		}
+
+		setPosts(
+			Posts.map((post, idx) => {
+				if (idx === index) {
+					post.title = inputEdit.current.value;
+					post.content = textareaEdit.value;
+					post.enableUpdate = false;
+				}
+				return post;
+			})
+		);
 	};
 
 	//글 수정모드 변경함수
@@ -79,19 +100,24 @@ function Community() {
 								//수정모드
 								<>
 									<div className='editTxt'>
-										<input type='text' defaultValue={post.title} />
+										<input
+											type='text'
+											defaultValue={post.title}
+											ref={inputEdit}
+										/>
 										<br />
 										<textarea
 											name=''
 											id=''
 											cols='30'
 											rows='3'
-											defaultValue={post.content}></textarea>
+											defaultValue={post.content}
+											ref={textareaEdit}></textarea>
 										<br />
 									</div>
 									<div className='btnSet'>
 										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
-										<button>UPDATE</button>
+										<button onClick={() => updatePost(idx)}>UPDATE</button>
 									</div>
 								</>
 							) : (
