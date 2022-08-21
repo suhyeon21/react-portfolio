@@ -26,7 +26,18 @@ function Community() {
 
 	//글삭제 함수
 	const deletePost = (index) => {
-		setPosts(Posts.filter((_, idx) => idx !== index));
+		const newPosts = Posts.filter((_, idx) => idx !== index);
+		setPosts(newPosts);
+	};
+
+	//글 수정모드 변경함수
+	const enableUpdate = (index) => {
+		setPosts(
+			Posts.map((post, idx) => {
+				if (idx === index) post.enableUpdate = true;
+				return post;
+			})
+		);
 	};
 
 	useEffect(() => {
@@ -54,14 +65,39 @@ function Community() {
 				{Posts.map((post, idx) => {
 					return (
 						<article key={idx}>
-							<div className='txt'>
-								<h2>{post.title}</h2>
-								<p>{post.content}</p>
-							</div>
-							<div className='btnSet'>
-								<button>EDIT</button>
-								<button onClick={() => deletePost(idx)}>DELETE</button>
-							</div>
+							{post.enableUpdate ? (
+								//수정모드
+								<>
+									<div className='editTxt'>
+										<input type='text' defaultValue={post.title} />
+										<br />
+										<textarea
+											name=''
+											id=''
+											cols='30'
+											rows='3'
+											defaultValue={post.content}></textarea>
+										<br />
+									</div>
+									<div className='btnSet'>
+										<button>CANCEL</button>
+										<button>UPDATE</button>
+									</div>
+								</>
+							) : (
+								//출력모드
+								<>
+									<div className='txt'>
+										<h2>{post.title}</h2>
+										<p>{post.content}</p>
+									</div>
+
+									<div className='btnSet'>
+										<button onClick={() => enableUpdate(idx)}>EDIT</button>
+										<button onClick={() => deletePost(idx)}>DELETE</button>
+									</div>
+								</>
+							)}
 						</article>
 					);
 				})}
