@@ -12,7 +12,7 @@ function Popup(props) {
 
 	return (
 		<aside className='popup'>
-			<div className='con'></div>
+			<div className='con'>{props.children}</div>
 			<span className='close' onClick={() => props.setOpen(false)}>
 				close
 			</span>

@@ -17,4 +17,12 @@
 			width: 100%;
 		}
 	}
+
+	.close {
+		position: absolute;
+		top: 2vw;
+		right: 3vw;
+		color: orange;
+		cursor: pointer;
+	}
 }
