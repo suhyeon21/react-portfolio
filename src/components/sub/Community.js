@@ -6,6 +6,13 @@ function Community() {
 	const textarea = useRef(null);
 	const inputEdit = useRef(null);
 	const textareaEdit = useRef(null);
+
+	//로컬스토리지에 있는 데이터 가져와서 JSON객체로 parsing
+	const getLocalData = () => {
+		const data = localStorage.getItem('post');
+		return JSON.parse(data);
+	};
+
 	const [Posts, setPosts] = useState([]);
 	const [Allowed, setAllowed] = useState(true);
 
@@ -77,8 +84,8 @@ function Community() {
 	};
 
 	useEffect(() => {
-		console.log(Allowed);
-	}, [Allowed]);
+		console.log(localStorage.setItem('post', JSON.stringify(Posts)));
+	}, [Posts]);
 
 	return (
 		<Layout name={'Community'}>
