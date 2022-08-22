@@ -1,6 +1,13 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 function Popup({ children, setOpen }) {
+	useEffect(() => {
+		document.body.style.overflowY = 'hidden';
+
+		return () => {
+			document.body.style.overflowY = 'auto';
+		};
+	}, []);
 	return (
 		<aside className='popup'>
 			<div className='con'>{children}</div>
