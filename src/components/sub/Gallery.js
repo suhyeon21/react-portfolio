@@ -30,6 +30,8 @@ function Gallery() {
 			url = `https://www.flickr.com/services/rest/?method=${method_search}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&tags=${opt.tag}`;
 		await axios.get(url).then((json) => {
 			console.log(json.data.photos.photo);
+			if (json.data.photos.photo.length === 0)
+				return alert('해당 검색어의 결과값이 없습니다.');
 			setItems(json.data.photos.photo);
 		});
 
@@ -71,7 +73,13 @@ function Gallery() {
 				<button onClick={showInterest}>Interest Gallery</button>
 
 				<div className='searchBox'>
-					<input type='text' ref={input} />
+					<input
+						type='text'
+						ref={input}
+						onKeyUp={(e) => {
+							if (e.key === 'Enter') showSearch();
+						}}
+					/>
 					<button
 						onClick={() => {
 							const result = input.current.value.trim();
