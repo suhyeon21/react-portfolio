@@ -11,6 +11,29 @@
 
   <title>React App</title>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24f22566463d7e03ea419aa701f0b0a2"></script>
+  <style>
+    .defaults {
+      position: absolute;
+      top: -999999px;
+    }
+
+    .mask {
+      width: 100%;
+      height: 100vh;
+      background: #111;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      opacity: 1;
+      transition: opacity 2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font: 20px/1 'arial';
+      color: #fff;
+    }
+  </style>
 
 </head>
 
@@ -18,7 +41,7 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <div class="defaults"></div>
-  <div class="mask"></div>
+  <div class="mask">LOADING...</div>
 
   <script>
     const defaults = document.querySelector('.defaults');
