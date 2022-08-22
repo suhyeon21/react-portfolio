@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from 'react';
 
 function Gallery() {
 	const frame = useRef(null);
+	const input = useRef(null);
 	const [Items, setItems] = useState([]);
 	const [Index, setIndex] = useState(0);
 	const [Open, setOpen] = useState(false);
@@ -56,6 +57,23 @@ function Gallery() {
 					}}>
 					Interest Gallery
 				</button>
+
+				<div className='searchBox'>
+					<input type='text' ref={input} />
+					<button
+						onClick={() => {
+							const result = input.current.value.trim();
+							if (!result) return alert('검색어를 입력하세요');
+							if (!EnableClick) return;
+							setEnableClick(false);
+							setLoading(true);
+							frame.current.classList.remove('on');
+							getFlickr({ type: 'search', tag: result });
+							input.current.value = '';
+						}}>
+						search
+					</button>
+				</div>
 				{Loading && (
 					<img
 						className='loading'
