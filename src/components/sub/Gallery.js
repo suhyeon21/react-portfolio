@@ -41,22 +41,34 @@ function Gallery() {
 		}, 1000);
 	};
 
+	//interest요청 함수
+	const showInterest = () => {
+		if (!EnableClick) return;
+		setLoading(true);
+		frame.current.classList.remove('on');
+		getFlickr({ type: 'interest' });
+		setEnableClick(false);
+	};
+
+	//search요청 함수
+	const showSearch = () => {
+		const result = input.current.value.trim();
+		if (!result) return alert('검색어를 입력하세요');
+		if (!EnableClick) return;
+		setEnableClick(false);
+		setLoading(true);
+		frame.current.classList.remove('on');
+		getFlickr({ type: 'search', tag: result });
+		input.current.value = '';
+	};
+
 	//처음  호출시에는 interest방식으로 호출
 	useEffect(() => getFlickr({ type: 'interest' }), []);
 
 	return (
 		<>
 			<Layout name={'Gallery'}>
-				<button
-					onClick={() => {
-						if (!EnableClick) return;
-						setLoading(true);
-						frame.current.classList.remove('on');
-						getFlickr({ type: 'interest' });
-						setEnableClick(false);
-					}}>
-					Interest Gallery
-				</button>
+				<button onClick={showInterest}>Interest Gallery</button>
 
 				<div className='searchBox'>
 					<input type='text' ref={input} />
@@ -73,6 +85,7 @@ function Gallery() {
 						}}>
 						search
 					</button>
+					<button onClick={showSearch}>search</button>
 				</div>
 				{Loading && (
 					<img
