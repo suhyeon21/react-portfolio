@@ -5,12 +5,8 @@
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
   <title>React App</title>
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24f22566463d7e03ea419aa701f0b0a2"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0aed7cff3e69be6d99e79138ccf791f5"></script>
   <style>
     .defaults {
       position: absolute;
@@ -34,7 +30,6 @@
       color: #fff;
     }
   </style>
-
 </head>
 
 <body>
@@ -76,8 +71,43 @@
       defaults.innerHTML = tags;
     }
 
-  </script>
+    //이미지소스 로딩완료 검사함수
+    //이미지소스가 모두 로딩완료시 프로미스객체로 true반환 함수
+    function loadImg() {
+      return new Promise((res, rej) => {
+        let countImg = 0;
+        const imgDOM = defaults.querySelectorAll('img');
 
+        imgDOM.forEach(img => {
+          img.onload = () => {
+            countImg++;
+            console.log('img loaded..', counteImg);
+            if (countImg === lenImg) {
+              res(true);
+            }
+          }
+        })
+      })
+    }
+
+    //영상소스가 모두 로딩완료되면 프로미스 객체로 true반환 함수
+    function loadVid() {
+      return new Promise((res, rej) => {
+        let countVid = 0;
+        const vidDOM = defaults.querySelectorAll('video');
+
+        vidDOM.forEach(vid => {
+          vid.onloadeddata = () => {
+            countVid++;
+            console.log('video loaded..', counteVid);
+            if (countVid === lenVid) {
+              res(true);
+            }
+          }
+        })
+      })
+    }
+  </script>
 </body>
 
 </html>
