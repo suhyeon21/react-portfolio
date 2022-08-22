@@ -1,6 +1,13 @@
 .Gallery {
+	.loading {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 0;
+	}
 	.frame {
-		transition: transform 2s, opacity 2s;
+		transition: transform 0.5s, opacity 0.5s;
 		transform: translateY(200px);
 		opacity: 0;
 
@@ -42,5 +49,28 @@
 				}
 			}
 		}
+	}
+}
+
+@media screen and (max-width: $web_s) {
+	.Gallery .frame article {
+		width: 25%;
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	.Gallery .frame article {
+		width: 33.333%;
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	.Gallery .frame article {
+		width: 50%;
+	}
+}
+@media screen and (max-width: $mobile_s) {
+	.Gallery .frame article {
+		width: 100%;
 	}
 }
