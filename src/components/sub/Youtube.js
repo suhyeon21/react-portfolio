@@ -12,14 +12,18 @@ function Youtube() {
 	const [Index, setIndex] = useState(0);
 
 	useEffect(() => {
-		const key = 'AIzaSyARA74pOQDMfjJhRvlEL6vBbvht5l5Xh4Q';
+		const key = 'AIzaSyCa4kJGxnh2YRcoywf_v-37m9DRJY75_Mw';
 		const playlist = 'PLUTOYlZjKt_YfIUHaMMypoLWiKGHqjonq';
 		const num = 4;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
 		axios.get(url).then((json) => {
 			setVids(json.data.items);
 		});
-	});
+	}, []);
+
+	useEffect(() => {
+		console.log(line);
+	}, [line]);
 
 	return (
 		<>
