@@ -9,6 +9,7 @@ function Youtube() {
 	const line = useRef(null);
 	const [Vids, setVids] = useState([]);
 	const [Open, setOpen] = useState(false);
+	const [Index, setIndex] = useState(0);
 
 	useEffect(() => {
 		const key = 'AIzaSyARA74pOQDMfjJhRvlEL6vBbvht5l5Xh4Q';
@@ -29,30 +30,36 @@ function Youtube() {
 						<br />
 						WORK
 					</h1>
-					{Vids.map((vid, idx) => {
-						return (
-							<article key={idx}>
-								<h2>{vid.snippet.title}</h2>
 
-								<div className='pic'>
-									<img
-										src={vid.snippet.thumbnails.standard.url}
-										alt={vid.title}
-									/>
-									<FontAwesomeIcon icon={faYoutube} ref={line} />
-								</div>
-								<div className='txt'>
-									<span>{vid.snippet.publishedAt.split('T')[0]}</span>
-								</div>
-							</article>
-						);
-					})}
+					{Vids.map((vid, idx) => (
+						<article key={vid.id}>
+							<h2>{vid.snippet.title}</h2>
+
+							<div className='pic'>
+								<img
+									src={vid.snippet.thumbnails.standard.url}
+									alt={vid.title}
+								/>
+								<FontAwesomeIcon
+									icon={faYoutube}
+									ref={line}
+									onClick={() => {
+										setOpen(true);
+										setIndex(idx);
+									}}
+								/>
+							</div>
+							<div className='txt'>
+								<span>{vid.snippet.publishedAt.split('T')[0]}</span>
+							</div>
+						</article>
+					))}
 				</div>
 			</Layout>
 			{Open && (
 				<Popup setOpen={setOpen}>
 					<iframe
-						src={`https://www.youtube.com/embed/${Vids[0].snippet.resourceId.videoId}`}
+						src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
 						frameBorder='0'></iframe>
 				</Popup>
 			)}
