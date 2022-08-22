@@ -14,14 +14,19 @@ function Gallery() {
 	const [EnableClick, setEnableClick] = useState(false);
 	const masonryOptions = { transitionDuration: '0.5s' };
 
-	const key = '5f93204b89f778b6700e782d390ca6ea';
-	const method_interest = 'flickr.interestingness.getList';
-
 	const num = 20;
+	const user = '196184841@N06';
+	const getFlickr = async (opt) => {
+		const key = '5f93204b89f778b6700e782d390ca6ea';
+		const method_interest = 'flickr.interestingness.getList';
+		const method_search = 'flickr.photos.search';
+		let url = '';
+		//객체로 전달되는 type에 따라 호출한 URL을 새로 만들고 axios에 전달
+		if (opt.type === 'interest')
+			url = `https://www.flickr.com/services/rest/?method=${method_interest}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1`;
 
-	const url_interest = `https://www.flickr.com/services/rest/?method=${method_interest}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1`;
-
-	const getFlickr = async (url) => {
+		if (opt.type === 'search')
+			url = `https://www.flickr.com/services/rest/?method=${method_search}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&tags=${opt.tag}`;
 		await axios.get(url).then((json) => {
 			console.log(json.data.photos.photo);
 			setItems(json.data.photos.photo);
@@ -35,7 +40,8 @@ function Gallery() {
 		}, 1000);
 	};
 
-	useEffect(() => getFlickr(url_interest), []);
+	//처음  호출시에는 interest방식으로 호출
+	useEffect(() => getFlickr({ type: 'interest' }), []);
 
 	return (
 		<>
@@ -45,7 +51,7 @@ function Gallery() {
 						if (!EnableClick) return;
 						setLoading(true);
 						frame.current.classList.remove('on');
-						getFlickr(url_interest);
+						getFlickr({ type: 'interest' });
 						setEnableClick(false);
 					}}>
 					Interest Gallery
