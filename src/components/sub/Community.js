@@ -7,9 +7,21 @@ function Community() {
 	const inputEdit = useRef(null);
 	const textareaEdit = useRef(null);
 
+	//로컬스토리지에 있는 데이터를 가져와서 다시 JSON객체로 parsing해서 리턴하는 함수
 	const getLocalData = () => {
+		const dummyPosts = [
+			{ title: 'Hello5', content: 'Here comes description in detail.' },
+			{ title: 'Hello4', content: 'Here comes description in detail.' },
+			{ title: 'Hello3', content: 'Here comes description in detail.' },
+			{ title: 'Hello2', content: 'Here comes description in detail.' },
+			{ title: 'Hello1', content: 'Here comes description in detail.' },
+		];
 		const data = localStorage.getItem('post');
-		return JSON.parse(data);
+		if (data) {
+			return JSON.parse(data);
+		} else {
+			return dummyPosts;
+		}
 	};
 
 	//초기 Posts스테이트에 로컬스토리지의 데이터를 가져와서 저장
@@ -106,51 +118,50 @@ function Community() {
 			</div>
 
 			<div className='showBox'>
-				{Posts &&
-					Posts.map((post, idx) => {
-						return (
-							<article key={idx}>
-								{post.enableUpdate ? (
-									//수정모드
-									<>
-										<div className='editTxt'>
-											<input
-												type='text'
-												defaultValue={post.title}
-												ref={inputEdit}
-											/>
-											<br />
-											<textarea
-												name=''
-												id=''
-												cols='30'
-												rows='3'
-												ref={textareaEdit}
-												defaultValue={post.content}></textarea>
-											<br />
-										</div>
-										<div className='btnSet'>
-											<button onClick={() => disableUpdate(idx)}>CANCEL</button>
-											<button onClick={() => updatePost(idx)}>UPDATE</button>
-										</div>
-									</>
-								) : (
-									//출력모드
-									<>
-										<div className='txt'>
-											<h2>{post.title}</h2>
-											<p>{post.content}</p>
-										</div>
+				{Posts.map((post, idx) => {
+					return (
+						<article key={idx}>
+							{post.enableUpdate ? (
+								//수정모드
+								<>
+									<div className='editTxt'>
+										<input
+											type='text'
+											defaultValue={post.title}
+											ref={inputEdit}
+										/>
+										<br />
+										<textarea
+											name=''
+											id=''
+											cols='30'
+											rows='3'
+											ref={textareaEdit}
+											defaultValue={post.content}></textarea>
+										<br />
+									</div>
+									<div className='btnSet'>
+										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
+										<button onClick={() => updatePost(idx)}>UPDATE</button>
+									</div>
+								</>
+							) : (
+								//출력모드
+								<>
+									<div className='txt'>
+										<h2>{post.title}</h2>
+										<p>{post.content}</p>
+									</div>
 
-										<div className='btnSet'>
-											<button onClick={() => enableUpdate(idx)}>EDIT</button>
-											<button onClick={() => deletePost(idx)}>DELETE</button>
-										</div>
-									</>
-								)}
-							</article>
-						);
-					})}
+									<div className='btnSet'>
+										<button onClick={() => enableUpdate(idx)}>EDIT</button>
+										<button onClick={() => deletePost(idx)}>DELETE</button>
+									</div>
+								</>
+							)}
+						</article>
+					);
+				})}
 			</div>
 		</Layout>
 	);
