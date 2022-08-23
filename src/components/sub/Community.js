@@ -106,50 +106,51 @@ function Community() {
 			</div>
 
 			<div className='showBox'>
-				{Posts.map((post, idx) => {
-					return (
-						<article key={idx}>
-							{post.enableUpdate ? (
-								//수정모드
-								<>
-									<div className='editTxt'>
-										<input
-											type='text'
-											defaultValue={post.title}
-											ref={inputEdit}
-										/>
-										<br />
-										<textarea
-											name=''
-											id=''
-											cols='30'
-											rows='3'
-											ref={textareaEdit}
-											defaultValue={post.content}></textarea>
-										<br />
-									</div>
-									<div className='btnSet'>
-										<button onClick={() => disableUpdate(idx)}>CANCEL</button>
-										<button onClick={() => updatePost(idx)}>UPDATE</button>
-									</div>
-								</>
-							) : (
-								//출력모드
-								<>
-									<div className='txt'>
-										<h2>{post.title}</h2>
-										<p>{post.content}</p>
-									</div>
+				{Posts &&
+					Posts.map((post, idx) => {
+						return (
+							<article key={idx}>
+								{post.enableUpdate ? (
+									//수정모드
+									<>
+										<div className='editTxt'>
+											<input
+												type='text'
+												defaultValue={post.title}
+												ref={inputEdit}
+											/>
+											<br />
+											<textarea
+												name=''
+												id=''
+												cols='30'
+												rows='3'
+												ref={textareaEdit}
+												defaultValue={post.content}></textarea>
+											<br />
+										</div>
+										<div className='btnSet'>
+											<button onClick={() => disableUpdate(idx)}>CANCEL</button>
+											<button onClick={() => updatePost(idx)}>UPDATE</button>
+										</div>
+									</>
+								) : (
+									//출력모드
+									<>
+										<div className='txt'>
+											<h2>{post.title}</h2>
+											<p>{post.content}</p>
+										</div>
 
-									<div className='btnSet'>
-										<button onClick={() => enableUpdate(idx)}>EDIT</button>
-										<button onClick={() => deletePost(idx)}>DELETE</button>
-									</div>
-								</>
-							)}
-						</article>
-					);
-				})}
+										<div className='btnSet'>
+											<button onClick={() => enableUpdate(idx)}>EDIT</button>
+											<button onClick={() => deletePost(idx)}>DELETE</button>
+										</div>
+									</>
+								)}
+							</article>
+						);
+					})}
 			</div>
 		</Layout>
 	);
