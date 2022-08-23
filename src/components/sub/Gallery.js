@@ -10,24 +10,28 @@ function Gallery() {
 	const [Items, setItems] = useState([]);
 	const [Index, setIndex] = useState(0);
 	const [Open, setOpen] = useState(false);
-	//masonry 전환속도 옵션객체 설정
 	const [Loading, setLoading] = useState(true);
 	const [EnableClick, setEnableClick] = useState(false);
 	const masonryOptions = { transitionDuration: '0.5s' };
-
-	const num = 20;
+	const num = 50;
 	const user = '196184841@N06';
+
 	const getFlickr = async (opt) => {
 		const key = '5f93204b89f778b6700e782d390ca6ea';
 		const method_interest = 'flickr.interestingness.getList';
+		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
 		let url = '';
-		//객체로 전달되는 type에 따라 호출한 URL을 새로 만들고 axios에 전달
-		if (opt.type === 'interest')
+		if (opt.type === 'interest') {
 			url = `https://www.flickr.com/services/rest/?method=${method_interest}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1`;
-
-		if (opt.type === 'search')
+		}
+		if (opt.type === 'user') {
+			url = `https://www.flickr.com/services/rest/?method=${method_user}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&user_id=${opt.user}`;
+		}
+		if (opt.type === 'search') {
 			url = `https://www.flickr.com/services/rest/?method=${method_search}&per_page=${num}&api_key=${key}&format=json&nojsoncallback=1&tags=${opt.tag}`;
+		}
+
 		await axios.get(url).then((json) => {
 			console.log(json.data.photos.photo);
 			if (json.data.photos.photo.length === 0)
@@ -35,7 +39,6 @@ function Gallery() {
 			setItems(json.data.photos.photo);
 		});
 
-		//masonry 박스정렬시간동안 기다린후 리스트 출력
 		setTimeout(() => {
 			frame.current.classList.add('on');
 			setLoading(false);
@@ -64,14 +67,20 @@ function Gallery() {
 		input.current.value = '';
 	};
 
-	//처음  호출시에는 interest방식으로 호출
+	//user요청 함수
+	const showUser = (e) => {
+		if (!EnableClick) return;
+		setLoading(true);
+		frame.current.classList.remove('on');
+		getFlickr({ type: 'user', user: e.target.getAttribute('user') });
+		setEnableClick(false);
+	};
+
 	useEffect(() => getFlickr({ type: 'interest' }), []);
 
 	return (
 		<>
 			<Layout name={'Gallery'}>
-				<button onClick={showInterest}>Interest Gallery</button>
-
 				<div className='searchBox'>
 					<input
 						type='text'
@@ -80,19 +89,6 @@ function Gallery() {
 							if (e.key === 'Enter') showSearch();
 						}}
 					/>
-					<button
-						onClick={() => {
-							const result = input.current.value.trim();
-							if (!result) return alert('검색어를 입력하세요');
-							if (!EnableClick) return;
-							setEnableClick(false);
-							setLoading(true);
-							frame.current.classList.remove('on');
-							getFlickr({ type: 'search', tag: result });
-							input.current.value = '';
-						}}>
-						search
-					</button>
 					<button onClick={showSearch}>search</button>
 				</div>
 				{Loading && (
@@ -101,19 +97,18 @@ function Gallery() {
 						src={process.env.PUBLIC_URL + '/img/loading.gif'}
 					/>
 				)}
-
 				<div className='frame' ref={frame}>
 					<Masonry elementType={'div'} options={masonryOptions}>
 						{Items.map((pic, idx) => {
 							return (
-								<article
-									key={idx}
-									onClick={() => {
-										setIndex(idx);
-										setOpen(true);
-									}}>
+								<article key={idx}>
 									<div className='inner'>
-										<div className='pic'>
+										<div
+											className='pic'
+											onClick={() => {
+												setIndex(idx);
+												setOpen(true);
+											}}>
 											<img
 												src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`}
 												alt={pic.title}
@@ -131,7 +126,9 @@ function Gallery() {
 													);
 												}}
 											/>
-											<span>{pic.owner}</span>
+											<span user={pic.owner} onClick={showUser}>
+												{pic.owner}
+											</span>
 										</div>
 									</div>
 								</article>
