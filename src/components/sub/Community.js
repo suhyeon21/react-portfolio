@@ -7,12 +7,12 @@ function Community() {
 	const inputEdit = useRef(null);
 	const textareaEdit = useRef(null);
 
-	//로컬스토리지에 있는 데이터 가져와서 JSON객체로 parsing
 	const getLocalData = () => {
 		const data = localStorage.getItem('post');
 		return JSON.parse(data);
 	};
 
+	//초기 Posts스테이트에 로컬스토리지의 데이터를 가져와서 저장
 	const [Posts, setPosts] = useState(getLocalData());
 	const [Allowed, setAllowed] = useState(true);
 
@@ -28,8 +28,8 @@ function Community() {
 			return alert('제목과 본문을 모두 입력하세요');
 		}
 		setPosts([
-			...Posts,
 			{ title: input.current.value, content: textarea.current.value },
+			...Posts,
 		]);
 		resetForm();
 	};
@@ -83,8 +83,9 @@ function Community() {
 		);
 	};
 
+	//Posts값이 변경될때마다 로컬 스토리지에 기존 데이터를 다시 문자열로 변환해서 저장
 	useEffect(() => {
-		console.log(localStorage.setItem('post', JSON.stringify(Posts)));
+		localStorage.setItem('post', JSON.stringify(Posts));
 	}, [Posts]);
 
 	return (
@@ -99,7 +100,7 @@ function Community() {
 					ref={textarea}></textarea>
 				<br />
 				<div className='btnSet'>
-					<button onClick={resetForm}>CANCEL</button>
+					<button>CANCEL</button>
 					<button onClick={createPost}>WRITE</button>
 				</div>
 			</div>
@@ -123,8 +124,8 @@ function Community() {
 											id=''
 											cols='30'
 											rows='3'
-											defaultValue={post.content}
-											ref={textareaEdit}></textarea>
+											ref={textareaEdit}
+											defaultValue={post.content}></textarea>
 										<br />
 									</div>
 									<div className='btnSet'>
