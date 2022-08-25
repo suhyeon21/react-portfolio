@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 //main
-import Visual from './components/main/Visual';
+import Main from './components/main/Main';
 import Content from './components/main/Content';
 //sub
 import Department from './components/sub/Department';
@@ -21,15 +21,11 @@ function App() {
 			<Switch>
 				{/* 메인페이지 전용 라우터  */}
 				<Route exact path='/'>
-					<Header type={'main'} />
-					<Visual />
-					<Content />
+					<Main />
 				</Route>
 
 				{/* 서브페이지 라우터 */}
-				<Route path='/'>
-					<Header type={'sub'} />
-				</Route>
+				<Route path='/' render={() => <Header type={'sub'} />} />
 			</Switch>
 
 			<Route path='/department'>
