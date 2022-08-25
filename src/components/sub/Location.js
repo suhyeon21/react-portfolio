@@ -1,5 +1,5 @@
 import Layout from '../common/Layout';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -8,6 +8,8 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 function Location() {
 	const { kakao } = window;
 	const container = useRef(null);
+	// const [Info] = useState(info);
+	const [Index, setIndex] = useState(0);
 	const option = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 		level: 3, // 지도의 확대 레벨
