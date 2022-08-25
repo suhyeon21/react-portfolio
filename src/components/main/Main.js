@@ -4,11 +4,13 @@ import News from './News';
 import Pics from './Pics';
 import Vids from './Vids';
 import Btns from './Btns';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import Anime from '../../assets/Anime';
 
 function Main() {
 	const main = useRef(null);
 	const pos = useRef([]);
+	const [Index, setIndex] = useState(0);
 
 	const getPos = () => {
 		pos.current = [];
@@ -27,6 +29,14 @@ function Main() {
 		};
 	}, []);
 
+	useEffect(() => {
+		new Anime(window, {
+			prop: 'scroll',
+			value: pos.current[Index],
+			duration: 500,
+		});
+	}, [Index]);
+
 	return (
 		<main ref={main}>
 			<Header type={'main'} />
@@ -34,7 +44,7 @@ function Main() {
 			<News />
 			<Pics />
 			<Vids />
-			<Btns />
+			<Btns setIndex={setIndex} />
 		</main>
 	);
 }
