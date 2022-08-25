@@ -16,7 +16,6 @@ function News() {
 		if (data) {
 			return JSON.parse(data);
 		} else {
-			console.log('더미 데이터 담기');
 			return dummyPosts;
 		}
 	};
