@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 function Youtube() {
-	const line = useRef(null);
+	const icon = useRef(null);
+
 	const [Vids, setVids] = useState([]);
 	const [Open, setOpen] = useState(false);
 	const [Index, setIndex] = useState(0);
@@ -16,14 +17,19 @@ function Youtube() {
 		const playlist = 'PLUTOYlZjKt_YfIUHaMMypoLWiKGHqjonq';
 		const num = 4;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
-		axios.get(url).then((json) => {
-			setVids(json.data.items);
-		});
+
+		axios
+			.get(url)
+			.then((json) => {
+				console.log(json.data.items);
+				setVids(json.data.items);
+			})
+			.catch((err) => console.log(err));
 	}, []);
 
 	useEffect(() => {
-		console.log(line.current);
-	}, [line]);
+		console.log(Vids);
+	}, [Vids]);
 
 	return (
 		<>
@@ -46,7 +52,7 @@ function Youtube() {
 								/>
 								<FontAwesomeIcon
 									icon={faYoutube}
-									ref={line}
+									ref={icon}
 									onClick={() => {
 										setOpen(true);
 										setIndex(idx);

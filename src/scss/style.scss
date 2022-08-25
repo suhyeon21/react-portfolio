@@ -11,8 +11,10 @@ $mobile_s: 479px;
 @import 'common/footer';
 @import 'common/layout';
 @import 'common/popup';
+
+//main
 @import 'main/visual';
-@import 'main/content';
+@import 'main/news';
 
 //sub
 @import 'sub/department';
