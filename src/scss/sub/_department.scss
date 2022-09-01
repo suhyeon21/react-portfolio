@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 .Department {
 	.title {
 		text-align: center;
@@ -23,6 +25,7 @@
 			width: 25%;
 			float: left;
 			padding: 20px;
+
 			.inner {
 				width: 100%;
 
@@ -31,16 +34,13 @@
 					height: 22vw;
 					position: relative;
 
-					.reflect {
+					.pic {
 						width: 100%;
 						height: 100%;
 						position: absolute;
 						top: 0;
 						left: 0;
 						transition: 0.5s;
-						filter: blur(15px) saturate(1.6);
-						transform: translate(0px, 0px) scale(0.9);
-						opacity: 0;
 
 						img {
 							width: 100%;
@@ -48,66 +48,80 @@
 							object-fit: cover;
 						}
 					}
-
+				}
+				&:hover {
 					.pic {
-						width: 100%;
-						height: 80%;
-						background: #111;
-						position: absolute;
-						top: 0;
-						left: 0;
-						filter: saturate(0.2);
-						transition: 0.5s;
-						border-radius: 50%;
-
-						img {
-							width: 100%;
-							height: 100%;
-							object-fit: cover;
-							border-radius: 50%;
-						}
+						transform: scale(1.05);
 					}
-
-					&:hover {
-						.pic {
-							filter: saturate(1.2);
+					.icons {
+						ul {
+							li {
+								opacity: 0.7;
+							}
 						}
 					}
 				}
-				.info {
-					text-align: center;
-					margin-top: -25px;
+			}
+			.info {
+				margin-top: 15px;
+				h2 {
+					font: 16px/1 'Montserrat';
+					font-weight: 700;
+					margin-bottom: 10px;
+				}
+				p {
+					font: 12px/1 'Montserrat';
+					text-align: start;
+					color: #898989;
+					margin-bottom: 10px;
+				}
+			}
+			.icons {
+				ul {
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					gap: 10px;
+					color: #898989;
+
+					li {
+						opacity: 0;
+						.icon {
+							width: 12px;
+							height: 12px;
+						}
+					}
 				}
 			}
 		}
 	}
-}
 
-@media screen and (max-width: $tablet) {
-	.Department {
-		> .inner {
-			article {
-				width: 50%;
+	@media screen and (max-width: $tablet) {
+		.Department {
+			> .inner {
+				article {
+					width: 50%;
 
-				.inner {
-					.picFrame {
-						height: 38vw;
+					.inner {
+						.picFrame {
+							height: 38vw;
+						}
 					}
 				}
 			}
 		}
 	}
-}
 
-@media screen and (max-width: $mobile) {
-	.Department {
-		> .inner {
-			article {
-				width: 100%;
+	@media screen and (max-width: $mobile) {
+		.Department {
+			> .inner {
+				article {
+					width: 100%;
 
-				.inner {
-					.picFrame {
-						height: 65vw;
+					.inner {
+						.picFrame {
+							height: 65vw;
+						}
 					}
 				}
 			}

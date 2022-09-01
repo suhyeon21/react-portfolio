@@ -1,4 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useRef } from 'react';
 
 function Header({ type }) {
 	return (
@@ -29,11 +32,10 @@ function Header({ type }) {
 						<NavLink to='/members'>MEMBERS</NavLink>
 					</li>
 				</ul>
-				<ul id='sign'>
-					<li>SIGN IN</li>
-					<li>SIGN UP</li>
-				</ul>
 			</nav>
+
+			{/* 토글버튼 클릭시 참조된 토글함수 호출 */}
+			<FontAwesomeIcon icon={faBars} className='bar' />
 		</header>
 	);
 }

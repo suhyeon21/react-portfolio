@@ -1,6 +1,10 @@
 import Layout from '../common/Layout';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function Department() {
 	const path = process.env.PUBLIC_URL;
@@ -22,9 +26,6 @@ function Department() {
 				<article key={idx}>
 					<div className='inner'>
 						<div className='picFrame'>
-							<div className='reflect'>
-								<img src={`${path}/img/${member.pic}`} alt={member.name} />
-							</div>
 							<div className='pic'>
 								<img src={`${path}/img/${member.pic}`} alt={member.name} />
 							</div>
@@ -32,6 +33,19 @@ function Department() {
 						<div className='info'>
 							<h2>{member.name}</h2>
 							<p>{member.position}</p>
+						</div>
+						<div className='icons'>
+							<ul>
+								<li>
+									<FontAwesomeIcon icon={faInstagram} className='icon' />
+								</li>
+								<li>
+									<FontAwesomeIcon icon={faTwitter} className='icon' />
+								</li>
+								<li>
+									<FontAwesomeIcon icon={faYoutube} className='icon' />
+								</li>
+							</ul>
 						</div>
 					</div>
 				</article>

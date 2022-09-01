@@ -13,7 +13,7 @@ function Gallery() {
 	const [Loading, setLoading] = useState(true);
 	const [EnableClick, setEnableClick] = useState(false);
 	const masonryOptions = { transitionDuration: '0.5s' };
-	const num = 50;
+	const num = 12;
 	const user = '196184841@N06';
 
 	const getFlickr = async (opt) => {
@@ -81,6 +81,10 @@ function Gallery() {
 	return (
 		<>
 			<Layout name={'Gallery'}>
+				<button user={user} onClick={showUser}>
+					My Gallery
+				</button>
+				<button onClick={showInterest}>Interest Gallery</button>
 				<div className='searchBox'>
 					<input
 						type='text'

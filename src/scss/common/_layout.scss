@@ -2,12 +2,13 @@
 
 .content {
 	figure {
-		width: 100%;
-		height: 350px;
+		width: 90%;
+		height: 500px;
 		position: relative;
 		opacity: 0;
 		transition: 1s;
 		overflow: hidden;
+		margin: 0 auto;
 		img {
 			width: 100%;
 			height: 100%;
@@ -16,7 +17,6 @@
 
 		h1 {
 			width: 100%;
-
 			font: 60px/1 'EB Garamond';
 			letter-spacing: 7px;
 			color: white;
@@ -24,6 +24,25 @@
 			transform: translate(-10%, 0%);
 			text-align: center;
 			bottom: 150px;
+
+			&::before {
+				content: '';
+				flex-grow: 2;
+				margin: 40px 16px;
+				background: rgba(0, 0, 0, 0.35);
+				height: 1px;
+				font-size: 0px;
+				line-height: 0px;
+			}
+			&::after {
+				content: '';
+				flex-grow: 1;
+				margin: 40px 16px;
+				background: rgba(0, 0, 0, 0.35);
+				height: 1px;
+				font-size: 0px;
+				line-height: 0px;
+			}
 		}
 	}
 	> .inner {
