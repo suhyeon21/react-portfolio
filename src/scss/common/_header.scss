@@ -24,7 +24,7 @@ header {
 	nav#webGnb {
 		display: flex;
 
-		font: 13px/1 'Montserrat';
+		font: 14px/1 'Montserrat';
 		font-weight: 700;
 
 		#gnb {
@@ -34,41 +34,44 @@ header {
 		}
 	}
 	.bar {
-		font-size: 20px;
+		font-size: 25px;
 	}
 }
-// @media screen and (max-width: $web_s) {
-// 	header {
-// 		height: 100px;
+@media screen and (max-width: $web_s) {
+	header {
+		height: 100px;
 
-// 		nav#webGnb {
-// 			width: 75%;
+		navnav#webGnb {
+			width: 70%;
 
-// 			#gnb {
-// 				margin-right: 0px;
-// 			}
-// 		}
-// 	}
-// }
+			#gnb {
+				margin-right: 0px;
+			}
+		}
+	}
+}
 
-// @media screen and (max-width: $tablet) {
-// 	header {
-// 		height: 150px;
-// 		nav {
-// 			width: 25%;
+@media screen and (max-width: $tablet) {
+	header {
+		height: 150px;
+		nav#webGnb {
+			width: 25%;
 
-// 			#gnb {
-// 				display: none;
-// 			}
-// 		}
-// 	}
-// }
+			#gnb {
+				display: none;
+			}
+			.fa-bars {
+				display: block;
+			}
+		}
+	}
+}
 
-// @media screen and (max-width: $mobile) {
-// 	header {
-// 		height: 100px;
-// 		nav {
-// 			display: none;
-// 		}
-// 	}
-// }
+@media screen and (max-width: $mobile) {
+	header {
+		height: 100px;
+		nav#webGnb {
+			display: none;
+		}
+	}
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 footer {
 	width: 100%;
 	padding: 50px 7vw;
@@ -22,13 +24,13 @@ footer {
 
 			dl {
 				dt {
-					font: bold 15px/1 'merriweather sans';
+					font: bold 15px/1 'Montserrat';
 					color: #333;
 					margin-bottom: 50px;
 					letter-spacing: 1px;
 				}
 				dd {
-					font: 15px/1 'merriweather sans';
+					font: 15px/1 'Montserrat';
 					color: #aaa;
 					margin-bottom: 25px;
 				}
@@ -43,7 +45,7 @@ footer {
 		justify-content: space-between;
 
 		p {
-			font: 14px/1 'arial';
+			font: 14px/1 'Montserrat';
 			color: #333;
 			letter-spacing: 2px;
 			display: flex;
@@ -58,7 +60,7 @@ footer {
 
 		.terms {
 			gap: 50px;
-			font: bold 14px/1 'arial';
+			font: bold 14px/1 'Montserrat';
 			color: #999;
 		}
 

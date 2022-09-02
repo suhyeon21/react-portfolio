@@ -21,14 +21,14 @@ function Visual() {
 						delay: 2500,
 						disableOnInteraction: false,
 					}}
-					pagination={{
-						clickable: true,
-						renderBullet: function (index, className) {
-							return (
-								'<span class="' + className + '">' + (index + 1) + '</span>'
-							);
-						},
-					}}
+					// pagination={{
+					// 	clickable: true,
+					// 	renderBullet: function (index, className) {
+					// 		return (
+					// 			'<span class="' + className + '">' + (index + 1) + '</span>'
+					// 		);
+					// 	},
+					// }}
 					navigation={true}
 					modules={[Autoplay, Pagination, Navigation]}
 					className='mySwiper'>

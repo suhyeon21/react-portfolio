@@ -1,15 +1,35 @@
 import { useState, forwardRef, useImperativeHandle } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavLink, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
-function Menu() {
-	const [Open, setOpen] = useState(true);
+//Memu컴포넌트를 화살표함수로 변경해서 forwardRef메서드의 인수로 전달
+const Menu = forwardRef((props, ref) => {
+	const [Open, setOpen] = useState(false);
 	const active = { color: 'orange' };
 
+	//부모컴포넌트의 참조객체에 담길 객체를 리턴 (Open값을 토글시켜주는 함수)
+	useImperativeHandle(ref, () => {
+		return {
+			toggle: () => setOpen(!Open),
+		};
+	});
+
+	useEffect(() => {
+		window.addEventListener('resize', () => {
+			const wid = window.innerWidth;
+			if (wid >= 1280) setOpen(false);
+		});
+	}, []);
 	return (
 		<AnimatePresence>
 			{Open && (
-				<nav id='mobileGnb'>
+				<motion.nav
+					id='mobileGnb'
+					onClick={() => setOpen(!Open)}
+					initial={{ opacity: 0, x: -320 }}
+					animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+					exit={{ opacity: 0, x: -320, transition: { duration: 0.5 } }}>
 					<h1>
 						<Link to='/'>
 							<img
@@ -51,10 +71,10 @@ function Menu() {
 							</NavLink>
 						</li>
 					</ul>
-				</nav>
+				</motion.nav>
 			)}
 		</AnimatePresence>
 	);
-}
+});
 
 export default Menu;

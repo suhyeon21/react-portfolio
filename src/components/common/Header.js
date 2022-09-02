@@ -1,10 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-
+import { useRef } from 'react';
 import Menu from './Menu';
 
 function Header({ type }) {
+	const menu = useRef(null);
+	const active = { color: '#000' };
 	return (
 		<header className={type}>
 			<h1>
@@ -36,8 +38,12 @@ function Header({ type }) {
 			</nav>
 
 			{/* 토글버튼 클릭시 참조된 토글함수 호출 */}
-			<FontAwesomeIcon icon={faBars} className='bar' />
-			<Menu />
+			<FontAwesomeIcon
+				icon={faBars}
+				className='bar'
+				onClick={() => menu.current.toggle()}
+			/>
+			<Menu ref={menu} />
 		</header>
 	);
 }

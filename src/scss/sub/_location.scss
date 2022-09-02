@@ -68,4 +68,14 @@
 		background: #000;
 		margin: 0 auto;
 	}
+	.info {
+		display: block;
+		font: 18px/1 'Montserrat';
+		font-weight: 500;
+		margin-top: 50px;
+		span {
+			display: block;
+			margin-bottom: 5px;
+		}
+	}
 }

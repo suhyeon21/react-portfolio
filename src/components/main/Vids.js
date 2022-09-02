@@ -59,13 +59,13 @@ function Vids() {
 				</Swiper>
 			</section>
 
-			{/* <Popup ref={pop}>
+			<Popup ref={pop}>
 				{youtube.length !== 0 && (
 					<iframe
 						src={`https://www.youtube.com/embed/${youtube[Index].snippet.resourceId.videoId}`}
 						frameBorder='0'></iframe>
 				)}
-			</Popup> */}
+			</Popup>
 		</>
 	);
 }

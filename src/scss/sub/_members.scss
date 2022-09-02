@@ -1,71 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 .Members {
 	.title {
-		text-align: center;
-		margin: 50px auto;
 		width: 600px;
+		margin-bottom: 80px;
 
 		h1 {
-			color: rgba(0, 0, 0, 0.35);
-			font-size: 60px;
-			margin-bottom: 10px;
+			font: 60px/1 'Montserrat';
+			font-weight: 700;
 		}
 	}
-	table {
-		width: 100%;
+	fieldset {
 		border: none;
-
-		border-bottom: 1px solid #333;
-
-		th {
-			width: 20%;
+		table {
+			width: 100%;
 			border: none;
-			border-bottom: 1px solid #bbb;
-			padding: 15px 30px;
-			text-align: left;
+			font-family: 'Montserrat';
 
-			&:last-child {
-				text-align: center;
+			th {
+				width: 25%;
+				border: none;
+				// border-bottom: 1px solid #bbb;
+
+				text-align: left;
+
+				// &:last-child {
+				// 	text-align: center;
+				// }
+
+				input[type='submit'] {
+					font: 20px/1 'Montserrat';
+					// border: 1px solid #aaa;
+					width: 230px;
+					height: 50px;
+					display: inline-flex;
+					justify-content: center;
+					align-items: center;
+
+					cursor: pointer;
+					margin-top: 100px;
+					color: #fff;
+					background-color: rgb(37, 36, 36);
+				}
 			}
 
-			input[type='reset'],
-			input[type='submit'] {
-				border: 1px solid #aaa;
-				width: 150px;
-				height: 30px;
-				display: inline-flex;
-				justify-content: center;
-				align-items: center;
-				margin: 0px 10px;
-				cursor: pointer;
-			}
-		}
+			td {
+				border: none;
+				// border-bottom: 1px solid #bbb;
+				// border-left: 1px solid #bbb;
+				padding: 15px 30px;
 
-		td {
-			border: none;
-			border-bottom: 1px solid #bbb;
-			border-left: 1px solid #bbb;
-			padding: 15px 30px;
-
-			input[type='text'],
-			input[type='password'],
-			select,
-			textarea {
-				width: 40%;
-				border: 1px solid #aaa;
-				padding: 6px 10px;
-				resize: none;
-			}
-			label {
-				margin-right: 6px;
-			}
-			input[type='radio'],
-			input[type='checkbox'] {
-				margin-right: 20px;
-			}
-			.err {
-				margin-left: 10px;
-				font-size: 12px;
-				color: hotpink;
+				input[type='text'],
+				input[type='password'],
+				select,
+				textarea {
+					width: 70%;
+					// border: 1px solid #aaa;
+					padding: 6px 10px;
+					resize: none;
+					font: 13px/1 'Montserrat';
+				}
+				label {
+					margin-right: 6px;
+				}
+				input[type='radio'] {
+					margin-right: 20px;
+				}
+				.err {
+					margin-left: 10px;
+					font-size: 12px;
+					color: rgb(214, 102, 102);
+				}
 			}
 		}
 	}

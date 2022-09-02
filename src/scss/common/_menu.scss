@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 #mobileGnb {
 	width: 320px;
 	height: 100%;
@@ -9,13 +11,15 @@
 	padding: 50px;
 
 	h1 {
+		width: 60px;
 		margin-bottom: 50px;
 	}
 
 	ul li a {
 		display: block;
 		height: 50px;
-		font: 16px/50px 'arial';
+		font: 16px/50px 'Montserrat';
+		font-weight: 700;
 		color: #bbb;
 	}
 }

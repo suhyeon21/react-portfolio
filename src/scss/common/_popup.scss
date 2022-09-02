@@ -24,13 +24,12 @@
 			object-fit: contain;
 		}
 	}
-
 	.close {
 		font: bold 14px/1 'arial';
+		color: orange;
 		position: absolute;
 		top: 2vw;
 		right: 2vw;
-		color: orange;
 		cursor: pointer;
 	}
 }

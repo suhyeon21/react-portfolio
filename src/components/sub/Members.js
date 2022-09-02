@@ -116,7 +116,7 @@ function Members() {
 			<form onSubmit={handleSubmit}>
 				<fieldset>
 					{/* <legend className='h'>회원가입 폼 양식</legend> */}
-					<table border='1'>
+					<table>
 						{/* <caption className='h'>회원가입 정보 입력</caption> */}
 						<tbody>
 							{/* userid */}
@@ -127,7 +127,7 @@ function Members() {
 								<td>
 									<input
 										type='text'
-										placeholder='아이디를 입력하세요'
+										placeholder='Please enter your ID'
 										name='userid'
 										id='userid'
 										//value={Val.userid}
@@ -136,7 +136,6 @@ function Members() {
 									<span className='err'>{Err.userid}</span>
 								</td>
 							</tr>
-
 							{/* password */}
 							<tr>
 								<th scope='row'>
@@ -148,7 +147,7 @@ function Members() {
 										name='pwd1'
 										id='pwd1'
 										//value={Val.pwd1}
-										placeholder='비밀번호를 입력하세요'
+										placeholder='Please enter your password'
 										onChange={handleChange}
 									/>
 									<span className='err'>{Err.pwd1}</span>
@@ -164,13 +163,12 @@ function Members() {
 										name='pwd2'
 										id='pwd2'
 										//value={Val.pwd2}
-										placeholder='비밀번호를 재입력하세요'
+										placeholder='Please check your password'
 										onChange={handleChange}
 									/>
 									<span className='err'>{Err.pwd2}</span>
 								</td>
 							</tr>
-
 							{/* email */}
 							<tr>
 								<th scope='row'>
@@ -182,14 +180,13 @@ function Members() {
 										id='email'
 										name='email'
 										//value={Val.email}
-										placeholder='이메일 주소를 입력하세요'
+										placeholder='Please enter your email'
 										onChange={handleChange}
 									/>
 									<span className='err'>{Err.email}</span>
 								</td>
 							</tr>
 
-							{/* gender */}
 							<tr>
 								<th scope='row'>GENDER</th>
 								<td>
@@ -212,37 +209,6 @@ function Members() {
 								</td>
 							</tr>
 
-							{/* interests */}
-							<tr>
-								<th scope='row'>INTERESTS</th>
-								<td>
-									<label htmlFor='sports'>Sports</label>
-									<input
-										type='checkbox'
-										id='sports'
-										name='interests'
-										onChange={handleCheck}
-									/>
-
-									<label htmlFor='music'>Music</label>
-									<input
-										type='checkbox'
-										id='music'
-										name='interests'
-										onChange={handleCheck}
-									/>
-
-									<label htmlFor='game'>Game</label>
-									<input
-										type='checkbox'
-										id='game'
-										name='interests'
-										onChange={handleCheck}
-									/>
-									<span className='err'>{Err.interests}</span>
-								</td>
-							</tr>
-
 							{/* comments */}
 							<tr>
 								<th scope='row'>
@@ -254,16 +220,14 @@ function Members() {
 										id='comments'
 										cols='30'
 										rows='3'
-										placeholder='남기는말을 입력하세요'
+										placeholder='Please enter your comments'
 										onChange={handleChange}></textarea>
 									<span className='err'>{Err.comments}</span>
 								</td>
 							</tr>
-
 							{/* btnSet */}
 							<tr>
-								<th colSpan='2'>
-									<input type='reset' value='cancel' />
+								<th>
 									<input
 										type='submit'
 										value='submit'

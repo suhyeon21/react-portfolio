@@ -62,6 +62,13 @@ function Location() {
 				</div>
 			</div>
 			<div id='map' ref={container}></div>
+			<div className='info'>
+				<span>Tel: +(123) 456 7890 </span>
+				<br />
+				<span>brok@qodeinteractive.com</span>
+				<br />
+				<span>Oslo, Kampengata 24</span>
+			</div>
 		</Layout>
 	);
 }

@@ -46,13 +46,13 @@ function Youtube() {
 				))}
 			</Layout>
 
-			{/* <Popup ref={pop}>
+			<Popup ref={pop}>
 				{Vids.length !== 0 && (
 					<iframe
 						src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
 						frameBorder='0'></iframe>
 				)}
-			</Popup> */}
+			</Popup>
 		</>
 	);
 }
