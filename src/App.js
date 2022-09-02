@@ -1,11 +1,15 @@
 import { Route, Switch } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchFlickr } from './redux/flickrSlice';
+import { fetchYoutube } from './redux/youtubeSlice';
+import { fetchMembers } from './redux/memberSlice';
 //common
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 //main
 import Main from './components/main/Main';
-import Content from './components/main/Content';
+
 //sub
 import Department from './components/sub/Department';
 import Community from './components/sub/Community';
@@ -16,6 +20,13 @@ import Members from './components/sub/Members';
 import './scss/style.scss';
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchYoutube());
+		dispatch(fetchMembers());
+		dispatch(fetchFlickr({ type: 'user', user: '196184841@N06' }));
+	}, []);
 	return (
 		<>
 			<Switch>

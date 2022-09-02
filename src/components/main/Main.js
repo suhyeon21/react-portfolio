@@ -17,9 +17,9 @@ function Main() {
 		<main ref={main}>
 			<Header type={'main'} />
 			<Visual />
-			<News />
 			<Pics />
 			<Vids />
+			<News />
 			<Btns
 				setIndex={setIndex}
 				Scrolled={Scrolled}

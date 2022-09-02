@@ -1,4 +1,5 @@
 import Layout from '../common/Layout';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,13 +9,13 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function Department() {
 	const path = process.env.PUBLIC_URL;
-	const [Members, setMembers] = useState([]);
+	const Members = useSelector((store) => store.members.data);
 
-	useEffect(() => {
-		axios.get(path + '/DB/members.json').then((json) => {
-			setMembers(json.data.members);
-		});
-	}, []);
+	// useEffect(() => {
+	// 	axios.get(path + '/DB/members.json').then((json) => {
+	// 		setMembers(json.data.members);
+	// 	});
+	// }, []);
 
 	return (
 		<Layout name={'Department'}>

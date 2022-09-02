@@ -1,28 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 .Youtube {
-	.wrap {
-		.title {
-			font-size: 90px;
-			padding: 30px 60px;
-			line-height: 1.1;
-		}
-	}
 	article {
 		border-top: 1px solid #aaa;
-		padding: 30px 60px;
+		padding: 30px 0px;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		.left {
+			width: 60%;
+			padding: 15px 0px;
 
-		h2 {
-			width: 50%;
-			font-size: 40px;
-			line-height: 1.1;
+			h2 {
+				width: 80%;
+
+				margin-bottom: 30px;
+				font: 30px/1 'Montserrat';
+				font-weight: 700;
+			}
+			.txt {
+				width: 80%;
+
+				p {
+					color: #999;
+					margin-bottom: 60px;
+					word-break: break-all;
+					font: 15px/1.3 'Montserrat';
+				}
+				span {
+					color: orange;
+					font: 11px/1 'Montserrat';
+				}
+			}
 		}
 		.pic {
-			width: 30%;
-			height: 230px;
+			width: 35%;
+			height: 100%;
 			background: #000;
-			filter: saturate(0);
+			padding: 0px 0;
+
 			transition: 0.5s;
 			position: relative;
 
@@ -30,38 +44,57 @@
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				padding: 10px;
 			}
+
 			.fa-youtube {
 				font-size: 80px;
-				color: #111;
 				position: absolute;
+				color: white;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, 0%);
+				transform: translate(-50%, -50%);
 				opacity: 0;
 				transition: 0.5s;
 				cursor: pointer;
 			}
 
 			&:hover {
-				filter: saturate(1.2);
-
 				.fa-youtube {
 					opacity: 1;
 					transform: translate(-50%, -50%);
 				}
 			}
 		}
-		.txt {
-			width: 10%;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: flex-end;
+	}
+}
 
-			span {
-				font: 15px/1 'arial';
-				color: #000;
+@media screen and (max-width: $tablet) {
+	.Youtube {
+		article {
+			h2 {
+				width: 47%;
+			}
+			.txt {
+				width: 50%;
+			}
+			.pic {
+				width: 100%;
+				margin-top: 30px;
+				margin-bottom: 80px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	.Youtube {
+		article {
+			h2 {
+				width: 100%;
+				margin-bottom: 15px;
+			}
+			.txt {
+				width: 100%;
 			}
 		}
 	}

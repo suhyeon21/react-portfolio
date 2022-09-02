@@ -3,14 +3,15 @@
 .Department {
 	.title {
 		text-align: center;
-		font-size: 70px;
+		font: 70px/1 'Montserrat';
+		font-weight: 700;
 		padding-top: 30px;
 		span {
 			font-size: 30px;
 		}
 	}
 	p {
-		font-size: 20px;
+		font: 17px/1 'Montserrat';
 		text-align: center;
 		margin-bottom: 40px;
 	}

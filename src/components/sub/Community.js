@@ -92,12 +92,13 @@ function Community() {
 	return (
 		<Layout name={'Community'}>
 			<div className='inputBox'>
-				<input type='text' placeholder='제목을 입력하세요' ref={input} />
+				<h2>LEAVE A REPLY</h2>
+				<input type='text' placeholder='title' ref={input} />
 				<br />
 				<textarea
 					cols='30'
 					rows='3'
-					placeholder='본문을 입력하세요'
+					placeholder='comment'
 					ref={textarea}></textarea>
 				<br />
 				<div className='btnSet'>
@@ -105,7 +106,6 @@ function Community() {
 					<button onClick={createPost}>WRITE</button>
 				</div>
 			</div>
-
 			<div className='showBox'>
 				{Posts.map((post, idx) => {
 					return (

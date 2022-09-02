@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .content {
 	figure {
@@ -17,13 +17,15 @@
 
 		h1 {
 			width: 100%;
-			font: 60px/1 'EB Garamond';
+			font: 100px/1 'Montserrat';
+			font-weight: 700;
 			letter-spacing: 7px;
 			color: white;
 			position: absolute;
-			transform: translate(-10%, 0%);
+			top: 50%;
+			left: 50%;
+			transform: translate(-10%, -50%);
 			text-align: center;
-			bottom: 150px;
 
 			&::before {
 				content: '';
