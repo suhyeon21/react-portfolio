@@ -1,7 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { useRef } from 'react';
+
+import Menu from './Menu';
 
 function Header({ type }) {
 	return (
@@ -11,7 +12,7 @@ function Header({ type }) {
 					<img src={process.env.PUBLIC_URL + '/img/logo.png'} alt='logo' />
 				</Link>
 			</h1>
-			<nav>
+			<nav id='webGnb'>
 				<ul id='gnb'>
 					<li>
 						<NavLink to='/department'>DEPARTMENT</NavLink>
@@ -36,6 +37,7 @@ function Header({ type }) {
 
 			{/* 토글버튼 클릭시 참조된 토글함수 호출 */}
 			<FontAwesomeIcon icon={faBars} className='bar' />
+			<Menu />
 		</header>
 	);
 }
