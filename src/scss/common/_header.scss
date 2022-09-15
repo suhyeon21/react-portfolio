@@ -23,7 +23,7 @@ header {
 	}
 	nav#webGnb {
 		display: flex;
-
+		color: #111;
 		font: 14px/1 'Montserrat';
 		font-weight: 700;
 
@@ -31,6 +31,12 @@ header {
 			display: flex;
 			gap: 25px;
 			align-items: center;
+
+			li {
+				a {
+					color: #111;
+				}
+			}
 		}
 	}
 	.bar {
@@ -41,7 +47,7 @@ header {
 	header {
 		height: 100px;
 
-		navnav#webGnb {
+		nav#webGnb {
 			width: 70%;
 
 			#gnb {
