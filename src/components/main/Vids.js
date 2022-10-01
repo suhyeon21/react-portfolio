@@ -16,26 +16,25 @@ function Vids() {
 
 	return (
 		<>
-			<div className='wrap'>
+			{/* <div className='wrap'>
 				<img src={process.env.PUBLIC_URL + '/img/figure1.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure2.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure3.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure4.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure5.png'} alt='logo' />
-			</div>
+			</div> */}
 
 			<section id='vids' className='myScroll'>
 				<Swiper
 					modules={[Pagination, Navigation, Autoplay]}
 					autoplay={{ delay: 2000, disableOnInteraction: true }}
 					pagination={{ clickable: true }}
-					// navigation={true}
+					navigation={true}
 					spaceBetween={50}
 					loop={true}
 					slidesPerView={3}
 					centeredSlides={true}>
 					{youtube.map((vid, idx) => {
-						if (idx >= 4) return;
 						return (
 							<SwiperSlide key={vid.id}>
 								<div className='inner'>
@@ -63,7 +62,8 @@ function Vids() {
 				{youtube.length !== 0 && (
 					<iframe
 						src={`https://www.youtube.com/embed/${youtube[Index].snippet.resourceId.videoId}`}
-						frameBorder='0'></iframe>
+						frameBorder='0'
+						allowFullScreen></iframe>
 				)}
 			</Popup>
 		</>

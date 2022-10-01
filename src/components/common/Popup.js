@@ -1,7 +1,7 @@
 import { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Popup = forwardRef(({ children }, ref) => {
+const Pop = forwardRef(({ children }, ref) => {
 	const [Open, setOpen] = useState(false);
 
 	useImperativeHandle(ref, () => {
@@ -40,7 +40,11 @@ const Popup = forwardRef(({ children }, ref) => {
 								opacity: 1,
 								transition: { duration: 0.5, delay: 0.5 },
 							}}
-							exit={{ opacity: 0, transition: { duration: 0.5, delay: 0 } }}>
+							exit={{
+								opacity: 0,
+
+								transition: { duration: 0.5, delay: 0.2 },
+							}}>
 							{children}
 						</motion.div>
 						<motion.span
@@ -54,10 +58,11 @@ const Popup = forwardRef(({ children }, ref) => {
 							}}
 							exit={{
 								opacity: 0,
+
 								x: 100,
 								transition: { duration: 0.5, delay: 0 },
 							}}>
-							close
+							CLOSE
 						</motion.span>
 					</motion.aside>
 				)}
@@ -66,4 +71,4 @@ const Popup = forwardRef(({ children }, ref) => {
 	);
 });
 
-export default Popup;
+export default Pop;
