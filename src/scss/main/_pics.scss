@@ -33,3 +33,76 @@
 		}
 	}
 }
+
+@media screen and (max-width: $tablet) {
+	#pics {
+		width: 100%;
+		height: 100%;
+		padding: 10vw;
+		position: relative;
+		// background-color: pink;
+
+		h1 {
+			font: 50px/1 'Montserrat';
+			font-weight: 700;
+			margin-bottom: 70px;
+		}
+		.wrap {
+			padding: 0;
+			display: flex;
+
+			.intro {
+				width: 300px;
+				margin-right: 70px;
+				margin-bottom: 120px;
+
+				h2 {
+					margin-bottom: 30px;
+					font: 16px/1 'Montserrat';
+					font-weight: 700;
+				}
+				p {
+					width: 250px;
+					font: 15px/1.4 'Montserrat';
+					color: #4c4c4c;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: $mobile) {
+	#pics {
+		width: 100%;
+		height: 100%;
+		padding: 10vw;
+		position: relative;
+		// background-color: pink;
+
+		h1 {
+			font: 50px/1 'Montserrat';
+			font-weight: 700;
+			margin-bottom: 70px;
+		}
+		.wrap {
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			.intro {
+				width: 300px;
+				margin-right: 70px;
+				margin-bottom: 120px;
+
+				h2 {
+					margin-bottom: 30px;
+					font: 16px/1 'Montserrat';
+					font-weight: 700;
+				}
+				p {
+					width: 250px;
+					font: 15px/1.4 'Montserrat';
+					color: #4c4c4c;
+				}
+			}
+		}
+	}
+}

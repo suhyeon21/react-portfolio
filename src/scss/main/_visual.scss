@@ -46,3 +46,24 @@
 		}
 	}
 }
+@media screen and (max-width: $tablet) {
+	#visual {
+		.mySlide {
+			h1 {
+				font: 70px/1 'Montserrat';
+				font-weight: 700;
+			}
+		}
+	}
+
+	@media screen and (max-width: $mobile) {
+		#visual {
+			.mySlide {
+				h1 {
+					font: 55px/1 'Montserrat';
+					font-weight: 700;
+				}
+			}
+		}
+	}
+}
