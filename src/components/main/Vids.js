@@ -16,13 +16,13 @@ function Vids() {
 
 	return (
 		<>
-			{/* <div className='wrap'>
+			<div className='wrap'>
 				<img src={process.env.PUBLIC_URL + '/img/figure1.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure2.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure3.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure4.png'} alt='logo' />{' '}
 				<img src={process.env.PUBLIC_URL + '/img/figure5.png'} alt='logo' />
-			</div> */}
+			</div>
 
 			<section id='vids' className='myScroll'>
 				<Swiper
